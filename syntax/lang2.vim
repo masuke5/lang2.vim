@@ -16,25 +16,32 @@ syn keyword lang2Keyword mut
 syn keyword lang2Keyword enum
 syn keyword lang2Keyword struct
 syn keyword lang2Keyword type
+syn keyword lang2Keyword new
 
 syn keyword lang2Type int
 syn keyword lang2Type bool
 syn keyword lang2Type string
 
-syn match lang2DecNumber display "\<[0-9][0-9]*"
+syn match lang2DecNumber display "\<\d\d*"
+syn match lang2OctNumber display "\<0\o\o*"
+syn match lang2HexNumber display "\<0x\x\x*"
+syn match lang2BinNumber display "\<0b[0-1][0-1]*"
 
-syn match lang2Operator display "\%(+\|-\|/\|*\|=\|\^\|&\||\|!\|>\|<\|%\)=\?"
-syn match lang2Operator display "&&\|||\|:="
+syn match lang2Operator display "\%(+\|-\|/\|*\|\^\|&\||\|>\|<\|%\)=\?"
+syn match lang2Operator display "&&\|||\|:=\|=\|<>"
 
 syn region lang2CommentSingleLine display start="#" end="$"
 syn region lang2CommentMultiLine start="##" end="##"
 
 syn match lang2EscapeError display contained /\\./
-syn match lang2Escape display contained /\\[nrt\\"0]/
+syn match lang2Escape display contained /\\\([nrt\\"0]\|x\x\{2}\)/
 syn region lang2String start=+"+ end=+"+ contains=lang2Escape,lang2EscapeError
 
 
 hi def link lang2DecNumber lang2Number
+hi def link lang2OctNumber lang2Number
+hi def link lang2HexNumber lang2Number
+hi def link lang2BinNumber lang2Number
 
 hi def link lang2Number Number
 hi def link lang2Escape Sperial
