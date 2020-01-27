@@ -17,6 +17,10 @@ syn keyword lang2Keyword enum
 syn keyword lang2Keyword struct
 syn keyword lang2Keyword type
 syn keyword lang2Keyword new
+syn keyword lang2Keyword import
+syn keyword lang2Keyword impl
+
+syn keyword lang2Null __null__
 
 syn keyword lang2Type int
 syn keyword lang2Type bool
@@ -52,5 +56,6 @@ hi def link lang2Type Type
 hi def link lang2Operator Operator
 hi def link lang2CommentSingleLine Comment
 hi def link lang2CommentMultiLine Comment
+hi def link lang2Null Constant
 
 let b:current_syntax = "lang2"
