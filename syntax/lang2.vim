@@ -16,15 +16,18 @@ syn keyword lang2Keyword mut
 syn keyword lang2Keyword enum
 syn keyword lang2Keyword struct
 syn keyword lang2Keyword type
-syn keyword lang2Keyword new
 syn keyword lang2Keyword import
 syn keyword lang2Keyword impl
+syn keyword lang2Keyword as
+syn keyword lang2Keyword not
 
 syn keyword lang2Null __null__
 
 syn keyword lang2Type int
+syn keyword lang2Type uint
 syn keyword lang2Type bool
 syn keyword lang2Type string
+syn keyword lang2Type char
 
 syn match lang2DecNumber display "\<\d\d*"
 syn match lang2OctNumber display "\<0\o\o*"
@@ -41,6 +44,8 @@ syn match lang2EscapeError display contained /\\./
 syn match lang2Escape display contained /\\\([nrt\\"0]\|x\x\{2}\)/
 syn region lang2String start=+"+ end=+"+ contains=lang2Escape,lang2EscapeError
 
+syn region lang2Char start="'" end="'" contains=lang2Escape,lang2EscapeError
+
 
 hi def link lang2DecNumber lang2Number
 hi def link lang2OctNumber lang2Number
@@ -51,6 +56,7 @@ hi def link lang2Number Number
 hi def link lang2Escape Sperial
 hi def link lang2Escape Error
 hi def link lang2String String
+hi def link lang2Char String
 hi def link lang2Keyword Keyword
 hi def link lang2Type Type
 hi def link lang2Operator Operator
